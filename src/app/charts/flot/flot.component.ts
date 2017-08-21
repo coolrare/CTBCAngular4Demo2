@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FlotCharts} from './init';
+import { Component, OnInit } from '@angular/core';
+import { FlotCharts } from './init';
 
 @Component({
   selector: 'app-flot',
@@ -7,7 +7,7 @@ import {FlotCharts} from './init';
   styleUrls: ['./flot.component.css']
 })
 export class FlotComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     $(FlotCharts);
