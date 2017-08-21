@@ -23,7 +23,9 @@ export class CardsComponent implements OnInit {
 
     // this.key = this.route.snapshot.queryParams['key'];
     this.route.queryParams.subscribe((params) => {
-      this.key = params['key'];
+      if (params['key']) {
+        this.key = params['key'];
+      }
     });
   }
 }
