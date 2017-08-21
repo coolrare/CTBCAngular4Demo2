@@ -21,4 +21,11 @@ export class DashboardComponent implements OnInit {
   goCards2(type) {
     this.router.navigateByUrl('/cards/'+type);
   }
+  goCards4(type, keyid) {
+    this.router.navigate(['/cards', type], {
+      queryParams: {
+        key: keyid
+      }
+    });
+  }
 }
