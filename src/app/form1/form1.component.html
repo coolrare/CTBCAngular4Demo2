@@ -2,12 +2,19 @@
     <div class="container-fluid">
         <h5 class="mt0">Classic form controls and custom variants</h5>
         <pre>data = {{ data | json }}
-form = {{ form.value | json }}</pre>
+form.value = {{ form.value | json }}
+form.valid = {{ form.valid | json }}
+form.invalid = {{ form.invalid | json }}
+form.pristine = {{ form.pristine | json }}
+form.dirty = {{ form.dirty | json }}
+form.touched = {{ form.touched | json }}
+form.untouched = {{ form.untouched | json }}
+form.errors = {{ form.errors | json }}</pre>
         <div class="card">
             <div class="card-body">
                 <form #form="ngForm" class="form-horizontal">
                     <fieldset>
-                        <div class="form-group" [class.has-error]="mTitle.errors">
+                        <div class="form-group" [class.has-error]="mTitle.dirty && mTitle.invalid">
                             <label class="col-sm-2 control-label">標題</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mTitle="ngModel" required minlength="3" maxlength="10" pattern="[A-Z][12]\d{8}">
@@ -16,6 +23,8 @@ form = {{ form.value | json }}</pre>
                                 <span class="help-block" *ngIf="mTitle['errors']?.maxlength">輸入超過限制</span>
                                 <span class="help-block" *ngIf="mTitle['errors']?.pattern">輸入格式錯誤</span>
                                 <pre>mTitle.value = {{ mTitle.value | json }}
+mTitle.valid = {{ mTitle.valid | json }}
+mTitle.invalid = {{ mTitle.invalid | json }}
 mTitle.pristine = {{ mTitle.pristine | json }}
 mTitle.dirty = {{ mTitle.dirty | json }}
 mTitle.touched = {{ mTitle.touched | json }}
@@ -24,11 +33,11 @@ mTitle.errors = {{ mTitle.errors | json }}</pre>
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset>
-                        <div class="form-group">
+                    <fieldset ngModelGroup="group1" #mGroup1="ngModelGroup">
+                        <div class="form-group" [class.has-error]="mSubtitle.dirty && mSubtitle.invalid">
                             <label class="col-sm-2 control-label">副標</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="subtitle" [(ngModel)]="data.subtitle">
+                                <input type="text" class="form-control" required name="subtitle" [(ngModel)]="data.subtitle" #mSubtitle="ngModel">
                                 <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                             </div>
                         </div>

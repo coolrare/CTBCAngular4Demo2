@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class Form1Component implements OnInit {
 
   data: any = {
-    title: 'A123456789',
-    subtitle: 'World'
+    title: 'A12345678',
+    subtitle: ''
   };
 
   constructor() { }
