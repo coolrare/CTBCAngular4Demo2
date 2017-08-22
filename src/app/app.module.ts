@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginGuard } from './login.guard';
 import { Form1Component } from './form1/form1.component';
+import { Form2Component } from './form2/form2.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Form1Component } from './form1/form1.component';
     CardsComponent,
     LoginComponent,
     LayoutComponent,
-    Form1Component
+    Form1Component,
+    Form2Component
   ],
   imports: [
     BrowserModule,

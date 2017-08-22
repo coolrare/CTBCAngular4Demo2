@@ -10,13 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginGuard } from './login.guard';
 import { Form1Component } from './form1/form1.component';
+import { Form2Component } from './form2/form2.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/form1', pathMatch: 'full' },
+  { path: '', redirectTo: '/form2', pathMatch: 'full' },
   {
     path: '', component: LayoutComponent, children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'form1', component: Form1Component },
+      { path: 'form2', component: Form2Component },
       { path: 'cards/:type', component: CardsComponent, canActivate: [LoginGuard] },
       {
         path: 'charts',
