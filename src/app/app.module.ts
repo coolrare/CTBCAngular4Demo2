@@ -11,6 +11,7 @@ import { CardsComponent } from './cards/cards.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginGuard } from './login.guard';
+import { Form1Component } from './form1/form1.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginGuard } from './login.guard';
     DashboardComponent,
     CardsComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    Form1Component
   ],
   imports: [
     BrowserModule,
