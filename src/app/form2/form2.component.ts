@@ -8,23 +8,29 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class Form2Component implements OnInit {
 
+  data: any = {
+    title: 'Will',
+    group1: {
+      subtitle: 'Huang'
+    }
+  };
+
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      'title': ['A123456789', [
-          Validators.required,
-          Validators.minLength(3)
-        ]
-      ],
-      'subtitle': ['Hello', [
-        Validators.required
-      ]
-    ]
+      'title': [''],
+      'group1': this.fb.group({
+        'subtitle': ['Hello', [Validators.required]]
+      })
     });
   }
 
   ngOnInit() {
+  }
+
+  doReset() {
+    this.form.reset(this.data);
   }
 
 }
