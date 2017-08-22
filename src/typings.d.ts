@@ -6,4 +6,4 @@ interface NodeModule {
 
 declare var $: any;
 declare var Colors: any;
-
+declare var Ripple: any;
