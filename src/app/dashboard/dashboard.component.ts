@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {initDashboard} from './init';
+import { initDashboard } from './init';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import {initDashboard} from './init';
 })
 export class DashboardComponent implements OnInit {
   constructor(private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     $(initDashboard);
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/cards', type]);
   }
   goCards2(type) {
-    this.router.navigateByUrl('/cards/'+type);
+    this.router.navigateByUrl('/cards/' + type);
   }
   goCards4(type, keyid) {
     this.router.navigate(['/cards', type], {

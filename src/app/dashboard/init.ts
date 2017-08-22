@@ -33,8 +33,8 @@ export function initDashboard() {
   ];
   var splineOptions = {
     series: {
-      lines: {show: false},
-      points: {show: false, radius: 3},
+      lines: { show: false },
+      points: { show: false, radius: 3 },
       splines: {
         show: true,
         tension: 0.39,
@@ -51,30 +51,30 @@ export function initDashboard() {
     },
     tooltip: true,
     tooltipOpts: {
-      content: function(label, x, y) {
+      content: function (label, x, y) {
         return x + ' : ' + y;
       }
     },
     xaxis: {
       tickColor: 'transparent',
       mode: 'categories',
-      font: {color: Colors.byName('blueGrey-200')}
+      font: { color: Colors.byName('blueGrey-200') }
     },
     yaxis: {
       show: false,
       min: 0,
       max: 220,  // optional: use it for a clear representation
       tickColor: 'transparent',
-      font: {color: Colors.byName('blueGrey-200')},
+      font: { color: Colors.byName('blueGrey-200') },
       // position: 'right' or 'left',
-      tickFormatter: function(v) {
+      tickFormatter: function (v) {
         return v /* + ' visitors'*/;
       }
     },
     shadowSize: 0
   };
 
-  $('#flot-main-spline').each(function() {
+  $('#flot-main-spline').each(function () {
     var $el = $(this);
     if ($el.data('height')) $el.height($el.data('height'));
     $el.plot(splineData, splineOptions);
@@ -106,21 +106,21 @@ export function initDashboard() {
       lineWidth: 1,
       align: 'center',
       // order : 1,
-      fillColor: {colors: [{opacity: 1}, {opacity: 1}]}
+      fillColor: { colors: [{ opacity: 1 }, { opacity: 1 }] }
     },
     colors: [Colors.byName('blue-100'), Colors.byName('blue-500')],
-    series: {shadowSize: 3},
+    series: { shadowSize: 3 },
     xaxis: {
       show: true,
       position: 'bottom',
       ticks: 10,
-      font: {color: Colors.byName('blueGrey-200')}
+      font: { color: Colors.byName('blueGrey-200') }
     },
     yaxis: {
       show: false,
       min: 0,
       max: 60,
-      font: {color: Colors.byName('blueGrey-200')}
+      font: { color: Colors.byName('blueGrey-200') }
     },
     grid: {
       hoverable: true,
@@ -132,11 +132,11 @@ export function initDashboard() {
     tooltipOpts: {
       content: 'Value %x.0 is %y.0',
       defaultTheme: false,
-      shifts: {x: 0, y: -20}
+      shifts: { x: 0, y: -20 }
     }
   };
 
-  $('#flot-stacked-chart').each(function() {
+  $('#flot-stacked-chart').each(function () {
     var $el = $(this);
     if ($el.data('height')) $el.height($el.data('height'));
     $el.plot(stackedChartData, stackedChartOptions);
@@ -147,10 +147,10 @@ export function initDashboard() {
   // ------------------
   var barChartOptions = {
     series: {
-      bars: {show: true, fill: 1, barWidth: 0.2, lineWidth: 0, align: 'center'},
+      bars: { show: true, fill: 1, barWidth: 0.2, lineWidth: 0, align: 'center' },
       highlightColor: 'rgba(255,255,255,0.2)'
     },
-    grid: {hoverable: true, clickable: true, borderWidth: 0, color: '#8394a9'},
+    grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#8394a9' },
     tooltip: true,
     tooltipOpts: {
       content: function getTooltip(label, x, y) {
@@ -160,20 +160,20 @@ export function initDashboard() {
     xaxis: {
       tickColor: 'transparent',
       mode: 'categories',
-      font: {color: Colors.byName('blueGrey-200')}
+      font: { color: Colors.byName('blueGrey-200') }
     },
     yaxis: {
       tickColor: 'transparent',
-      font: {color: Colors.byName('blueGrey-200')}
+      font: { color: Colors.byName('blueGrey-200') }
     },
-    legend: {show: false},
+    legend: { show: false },
     shadowSize: 0
   };
 
   var barChartData = [
     {
       'label': 'New',
-      bars: {order: 0, fillColor: Colors.byName('primary')},
+      bars: { order: 0, fillColor: Colors.byName('primary') },
       data: [
         ['Jan', 20], ['Feb', 15], ['Mar', 25], ['Apr', 30], ['May', 40],
         ['Jun', 35]
@@ -181,7 +181,7 @@ export function initDashboard() {
     },
     {
       'label': 'Recurrent',
-      bars: {order: 1, fillColor: Colors.byName('green-400')},
+      bars: { order: 1, fillColor: Colors.byName('green-400') },
       data: [
         ['Jan', 35], ['Feb', 25], ['Mar', 45], ['Apr', 25], ['May', 30],
         ['Jun', 15]
@@ -189,7 +189,7 @@ export function initDashboard() {
     }
   ];
 
-  $('#flot-bar-chart').each(function() {
+  $('#flot-bar-chart').each(function () {
     var $el = $(this);
     if ($el.data('height')) $el.height($el.data('height'));
     $el.plot(barChartData, barChartOptions);
@@ -206,37 +206,37 @@ export function initDashboard() {
       // 4, 4, 3, 5, 3, 4, 6
     ]
   }];
-  var chartTaskOptions = {
+  let chartTaskOptions = {
     series: {
-      lines: {show: false},
-      points: {show: false},
-      splines: {show: true, tension: 0.4, lineWidth: 3, fill: 1},
+      lines: { show: false },
+      points: { show: false },
+      splines: { show: true, tension: 0.4, lineWidth: 3, fill: 1 },
     },
-    legend: {show: false},
+    legend: { show: false },
     grid: {
       show: false,
     },
     tooltip: true,
     tooltipOpts: {
-      content: function(label, x, y) {
+      content: function (label, x, y) {
         return x + ' : ' + y;
       }
     },
-    xaxis: {tickColor: '#fcfcfc', mode: 'categories'},
+    xaxis: { tickColor: '#fcfcfc', mode: 'categories' },
     yaxis: {
       min: 0,
       max: 30,  // optional: use it for a clear representation
       tickColor: '#eee',
       // position: 'right' or 'left',
-      tickFormatter: function(v) {
+      tickFormatter: function (v) {
         return v /* + ' visitors'*/;
       }
     },
     shadowSize: 0
   };
 
-  $('#flot-task-chart').each(function() {
-    var $el = $(this);
+  $('#flot-task-chart').each(function () {
+    let $el = $(this);
     if ($el.data('height')) $el.height($el.data('height'));
     $el.plot(chartTaskData, chartTaskOptions);
   });
@@ -244,14 +244,14 @@ export function initDashboard() {
   // Easy Pie charts
   // -----------------
 
-  var pieOptionsTask = {
+  let pieOptionsTask = {
     lineWidth: 6,
     trackColor: 'transparent',
     barColor: Colors.byName('primary'),
     scaleColor: false,
     size: 90,
     lineCap: 'round',
-    animate: {duration: 3000, enabled: true}
+    animate: { duration: 3000, enabled: true }
   };
   $('#dashboard-easypiechartTask').easyPieChart(pieOptionsTask);
 
@@ -260,27 +260,27 @@ export function initDashboard() {
   // -----------------
 
   // USA Map
-  var usa_markers = [
-    {latLng: [40.71, -74.00], name: 'New York'},
-    {latLng: [34.05, -118.24], name: 'Los Angeles'}, {
+  let usa_markers = [
+    { latLng: [40.71, -74.00], name: 'New York' },
+    { latLng: [34.05, -118.24], name: 'Los Angeles' }, {
       latLng: [41.87, -87.62],
       name: 'Chicago',
-      style: {fill: Colors.byName('pink-500'), r: 15}
+      style: { fill: Colors.byName('pink-500'), r: 15 }
     },
     {
       latLng: [29.76, -95.36],
       name: 'Houston',
-      style: {fill: Colors.byName('purple-500'), r: 10}
+      style: { fill: Colors.byName('purple-500'), r: 10 }
     },
-    {latLng: [39.95, -75.16], name: 'Philadelphia'},
-    {latLng: [38.90, -77.03], name: 'Washington'}, {
+    { latLng: [39.95, -75.16], name: 'Philadelphia' },
+    { latLng: [38.90, -77.03], name: 'Washington' }, {
       latLng: [37.36, -122.03],
       name: 'Silicon Valley',
-      style: {fill: Colors.byName('green-500'), r: 20}
+      style: { fill: Colors.byName('green-500'), r: 20 }
     }
   ];
 
-  var usa_options = {
+  let usa_options = {
     map: 'us_mill_en',
     normalizeFunction: 'polynomial',
     backgroundColor: '#fff',
@@ -290,12 +290,12 @@ export function initDashboard() {
     zoomOnScroll: false,
     markers: usa_markers,
     regionStyle: {
-      initial: {fill: Colors.byName('blueGrey-200')},
-      hover: {fill: Colors.byName('gray-light'), stroke: '#fff'},
+      initial: { fill: Colors.byName('blueGrey-200') },
+      hover: { fill: Colors.byName('gray-light'), stroke: '#fff' },
     },
     markerStyle: {
-      initial: {fill: Colors.byName('blue-500'), stroke: '#fff', r: 10},
-      hover: {fill: Colors.byName('orange-500'), stroke: '#fff'}
+      initial: { fill: Colors.byName('blue-500'), stroke: '#fff', r: 10 },
+      hover: { fill: Colors.byName('orange-500'), stroke: '#fff' }
     }
   };
 
@@ -309,11 +309,11 @@ export function initDashboard() {
   // Sparklines
   // -----------------
 
-  var sparkValue1 = [4, 4, 3, 5, 3, 4, 6, 5, 3, 2, 3, 4, 6];
-  var sparkValue2 = [2, 3, 4, 6, 5, 4, 3, 5, 4, 3, 4, 3, 4, 5];
-  var sparkValue3 = [4, 4, 3, 5, 3, 4, 6, 5, 3, 2, 3, 4, 6];
-  var sparkValue4 = [6, 5, 4, 3, 5, 4, 3, 4, 3, 4, 3, 2, 2];
-  var sparkOpts = {
+  let sparkValue1 = [4, 4, 3, 5, 3, 4, 6, 5, 3, 2, 3, 4, 6];
+  let sparkValue2 = [2, 3, 4, 6, 5, 4, 3, 5, 4, 3, 4, 3, 4, 5];
+  let sparkValue3 = [4, 4, 3, 5, 3, 4, 6, 5, 3, 2, 3, 4, 6];
+  let sparkValue4 = [6, 5, 4, 3, 5, 4, 3, 4, 3, 4, 3, 2, 2];
+  let sparkOpts = {
     type: 'line',
     height: 20,
     width: '70',
